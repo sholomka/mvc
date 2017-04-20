@@ -1,0 +1,44 @@
+{
+  "name": "sholomka/mvc_client",
+  "description": "package for mvc.",
+  "keywords": [
+    "mvc"
+  ],
+  "homepage": "https://github.com/sholomka/ComposerPackage",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Yuriy Sholom",
+
+      "email": "sholomka@gmail.com",
+
+      "homepage": "https://github.com/sholomka",
+
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php" : ">=7.1.4"
+  },
+  "require-dev": {
+    "phpunit/phpunit" : "4.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Application\\Controllers\\": "application/controllers"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Application\\Controllers\\": "application/controllers"
+    }
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "1.0-dev"
+    }
+  },
+  "scripts": {
+    "test": "phpunit"
+  }
+}
