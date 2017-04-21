@@ -1,7 +1,5 @@
 <?php
-require_once('core/controller.php');
-require_once('core/model.php');
-require_once('core/view.php');
-require_once('core/route.php');
+declare(strict_types=1);
+require_once __DIR__.'/../vendor/autoload.php';
 
-Route::start();
+Application\Core\Route::start();

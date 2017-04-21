@@ -1,5 +1,7 @@
 <?php
 
+namespace  Application\Core;
+
 class Route
 {
     public static function start()
@@ -32,12 +34,14 @@ class Route
         $controllerFile = $controllerName . '.php';
         $controllerPath = 'application/controllers/' . $controllerFile;
 
-
         if (file_exists($controllerPath)) {
             include_once($controllerPath);
         } else {
             self::errorPage404();
         }
+
+        $controllerNameSpacePath = '\\Application\\Controllers\\';
+        $controllerName = $controllerNameSpacePath . $controllerName;
 
         $controler = new $controllerName();
         $action = $actionName;

@@ -1,8 +1,12 @@
 <?php
 
+namespace  Application\Controllers;
+
+use Application\Core\Controller;
+use Application\Models\ModelPortfolio;
+
 class ControllerPortfolio extends Controller
 {
-
     public function __construct()
     {
         parent::__construct();

@@ -4,7 +4,7 @@
   "keywords": [
     "mvc"
   ],
-  "homepage": "https://github.com/sholomka/ComposerPackage",
+  "homepage": "https://github.com/sholomka/mvc",
   "license": "MIT",
   "authors": [
     {
@@ -18,19 +18,19 @@
     }
   ],
   "require": {
-    "php" : ">=7.1.4"
+    "php" : ">=7.0.8"
   },
   "require-dev": {
     "phpunit/phpunit" : "4.*"
   },
   "autoload": {
     "psr-4": {
-      "Application\\Controllers\\": "application/controllers"
+      "Application\\Core\\": "application/core"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Application\\Controllers\\": "application/controllers"
+      "Application\\Core\\": "application/core"
     }
   },
   "extra": {

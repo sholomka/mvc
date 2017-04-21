@@ -1,5 +1,9 @@
 <?php
 
+namespace  Application\Controllers;
+
+use Application\Core\Controller;
+
 class Controller404 extends Controller
 {
     public function actionIndex()
