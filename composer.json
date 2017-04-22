@@ -20,25 +20,22 @@
   "require": {
     "php" : ">=7.0.8"
   },
-  "require-dev": {
-    "phpunit/phpunit" : "4.*"
-  },
+
   "autoload": {
     "psr-4": {
-      "Application\\Core\\": "application/core"
+      "Application\\Core\\": "application/core",
+      "Application\\Exceptions\\": "application/exceptions"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Application\\Core\\": "application/core"
+      "Application\\Core\\": "application/core",
+      "Application\\Exceptions\\": "application/exceptions"
     }
   },
   "extra": {
     "branch-alias": {
       "dev-master": "1.0-dev"
     }
-  },
-  "scripts": {
-    "test": "phpunit"
   }
 }

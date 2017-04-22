@@ -2,28 +2,38 @@
 
 namespace  Application\Core;
 
+use Application\Core\ApplicationRegistry;
+
 class Route
 {
+    const ACTION_NAME = 'Index';
+
+    const CONTROLLER_NAME = 'Main';
+
     public static function start()
     {
-        $routes = explode('/', $_SERVER['REQUEST_URI']);
+        $registry = ApplicationRegistry::instance();
+        $request = $registry->getRequest();
+        $actionName = self::ACTION_NAME;
+        $controllerName = self::CONTROLLER_NAME;
+        $firstUrlPart = $request->getUrlPart(1);
+        $secondUrlPart = $request->getUrlPart(2);
 
-        $controllerName = 'Main';
-        $actionName = 'Index';
-
-        if (!empty($routes[1])) {
-            $controllerName = mb_convert_case($routes[1], MB_CASE_TITLE, "UTF-8");
+        if (!empty($firstUrlPart)) {
+            $controllerName = mb_convert_case($firstUrlPart, MB_CASE_TITLE, "UTF-8");
         }
 
-        if (!empty($routes[2])) {
-            $actionName = mb_convert_case($routes[2], MB_CASE_TITLE, "UTF-8");
+        if (!empty($secondUrlPart)) {
+            $actionName = mb_convert_case($secondUrlPart, MB_CASE_TITLE, "UTF-8");
+        }
+
+        if (is_numeric($actionName)) {
+            $actionName = self::ACTION_NAME;
         }
 
         $modelName = 'Model' . $controllerName;
         $controllerName = 'Controller' . $controllerName;
         $actionName = 'action' . $actionName;
-
-
         $modelFile = $modelName . '.php';
         $modelPath = 'application/models/' . $modelFile;
 
