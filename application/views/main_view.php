@@ -10,24 +10,26 @@
         </tr>
         </thead>
         <tbody>
-        <?php foreach ($data as $item) : ?>
-        <tr>
-            <td class="name">
-                <?= $item->name; ?>
-            </td>
-            <td class="email">
-                <?= $item->email; ?>
-            </td>
-            <td class="description">
-                <?= $item->description; ?>
-            </td>
-            <td class="image">
-                <?php if (file_exists(APPLICATION_PATH . 'images/' . $item->image)) : ?>
-                    <img width="50" height="50" src="<?= '/images/' . $item->image; ?>" alt="">
-                <?php endif; ?>
-            </td>
-        </tr>
-        <?php endforeach; ?>
+        <?php if(!empty($data)): ?>
+            <?php foreach ($data as $item) : ?>
+            <tr>
+                <td class="name">
+                    <?= $item->name; ?>
+                </td>
+                <td class="email">
+                    <?= $item->email; ?>
+                </td>
+                <td class="description">
+                    <?= $item->description; ?>
+                </td>
+                <td class="image">
+                    <?php if (file_exists(APPLICATION_PATH . 'images/' . $item->image)) : ?>
+                        <img width="50" height="50" src="<?= '/images/' . $item->image; ?>" alt="">
+                    <?php endif; ?>
+                </td>
+            </tr>
+            <?php endforeach; ?>
+        <?php endif; ?>
         </tbody>
     </table>
 </div>
