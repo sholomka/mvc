@@ -39,22 +39,13 @@ class ControllerEdit extends Controller
         header('Location:/admin');
     }
 
-
     public function actionImageUpload()
     {
         $file = new User();
         $array = array('status' => 'success', 'filename' => $file->getSavedFileName());
-
         header('Content-Type', 'application/json;charset=utf-8');
-
         $file->upload();
-
         echo  json_encode($array);
-
-//        $filePath = APPLICATION_PATH .  implode(DIRECTORY_SEPARATOR, ['images', 'user',  $userId, 'original']) . DIRECTORY_SEPARATOR . $this->_request->getparam('name');
-//        $savePath = APPLICATION_PATH .  implode(DIRECTORY_SEPARATOR, ['images', 'user',  $userId, Models_File_User::THUMBNAIL_WIDTH . 'x' . Models_File_User::THUMBNAIL_HEIGHT]) . DIRECTORY_SEPARATOR . $this->_request->getparam('name')
-//        $image = Image::createImage($filePath);
-//        $image->save($savePath);
     }
 }
 
