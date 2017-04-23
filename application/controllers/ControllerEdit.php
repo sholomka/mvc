@@ -5,6 +5,8 @@ namespace  Application\Controllers;
 use Application\Core\Controller;
 use Application\Models\ModelEdit;
 use Application\Core\ApplicationRegistry;
+use Application\Core\File\User;
+use Application\Core\Image\Image;
 
 class ControllerEdit extends Controller
 {
@@ -32,9 +34,27 @@ class ControllerEdit extends Controller
 
     public function actionSave()
     {
-        $this->model->editTask($_POST['name'], $_POST['email'], $_POST['description'], $_POST['image'], $_POST['id']);
+        $this->model->editTask($this->request);
 
-        header('Location:/');
+        header('Location:/admin');
+    }
+
+
+    public function actionImageUpload()
+    {
+        $file = new User();
+        $array = array('status' => 'success', 'filename' => $file->getSavedFileName());
+
+        header('Content-Type', 'application/json;charset=utf-8');
+
+        $file->upload();
+
+        echo  json_encode($array);
+
+//        $filePath = APPLICATION_PATH .  implode(DIRECTORY_SEPARATOR, ['images', 'user',  $userId, 'original']) . DIRECTORY_SEPARATOR . $this->_request->getparam('name');
+//        $savePath = APPLICATION_PATH .  implode(DIRECTORY_SEPARATOR, ['images', 'user',  $userId, Models_File_User::THUMBNAIL_WIDTH . 'x' . Models_File_User::THUMBNAIL_HEIGHT]) . DIRECTORY_SEPARATOR . $this->_request->getparam('name')
+//        $image = Image::createImage($filePath);
+//        $image->save($savePath);
     }
 }
 

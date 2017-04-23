@@ -26,6 +26,7 @@ abstract class Model
         $dsn = $registry->getDSN();
         $username = $registry->getUserName();
         $password = $registry->getPassword();
+        $this->request = $registry->getRequest();
         $registry->ensure($dsn, 'DSN не определен');
         self::$DB = new \PDO($dsn, $username, $password);
         self::$DB->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
@@ -44,6 +45,8 @@ abstract class Model
         $stmtHandle = self::$DB->prepare($statement);
         self::$statements[$statement] = $stmtHandle;
 
+
+
         return $stmtHandle;
     }
 
@@ -52,11 +55,18 @@ abstract class Model
      * @param array|null $values
      * @return mixed|\PDOStatement
      */
-    protected function doStatement($statement, array $values = null)
+    protected function doStatement($statement, array $values = [])
     {
+
         $sth = $this->prepareStatement($statement);
         $sth->closeCursor();
+
+
+
+
+
         $dbResult = $sth->execute($values);
+
 
         return $sth;
     }

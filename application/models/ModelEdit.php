@@ -3,6 +3,7 @@
 namespace  Application\Models;
 
 use Application\Core\Model;
+use Application\Core\Request;
 
 class ModelEdit extends Model
 {
@@ -14,7 +15,8 @@ class ModelEdit extends Model
                                    name = ?,
                                    email = ?,
                                    description = ?,
-                                   image = ?
+                                   image = ?,
+                                   status = ?
                                WHERE id = ?";
 
     /**
@@ -31,15 +33,25 @@ class ModelEdit extends Model
                                   WHERE id = ?";
 
     /**
-     * @param $name
-     * @param $email
-     * @param $description
-     * @param $image
+     * @param Request $request
      */
-    public function editTask($name, $email, $description, $image, $id)
+    public function editTask(Request $request)
     {
-        $stmt = $this->doStatement(self::$editTask, [$name, $email, $description, $image, $id]);
+        $name = $request->getProperty('name');
+        $email = $request->getProperty('email'); ;
+        $description = $request->getProperty('description');
+        $image = $_FILES['image']['name'];
+        $id = $request->getProperty('id');
+        $status = $request->getProperty('status') == 'on' ? 1 : 0;
 
+        $stmt = $this->doStatement(self::$editTask, [
+            $name,
+            $email,
+            $description,
+            $image,
+            $status,
+            $id
+        ]);
     }
 
 

@@ -15,6 +15,8 @@ class Controller
 
     public function __construct()
     {
+        session_start();
+
         $this->view = new View();
 
         $registry = ApplicationRegistry::instance();
@@ -24,6 +26,7 @@ class Controller
 
     public function actionIndex()
     {
+
     }
 }
 

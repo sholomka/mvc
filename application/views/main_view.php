@@ -1,14 +1,12 @@
 <a class="btn btn-lg btn-success" id="add" href="/add">Добавить</a>
 <div class="table-responsive">
-    <table class="table table-hover table-bordered table-striped">
+    <table id="main-table" class="table table-hover table-bordered table-striped">
         <thead>
         <tr>
             <th>имя</th>
             <th>е-mail</th>
             <th>текст задачи</th>
             <th>картинка</th>
-            <th>статус</th>
-            <th>действия</th>
         </tr>
         </thead>
         <tbody>
@@ -24,13 +22,9 @@
                 <?= $item->description; ?>
             </td>
             <td class="image">
-                <?= $item->image; ?>
-            </td>
-            <td class="image">
-                <?= $item->status; ?>
-            </td>
-            <td>
-                <a href="/edit/<?= $item->id; ?>"><span class="glyphicon glyphicon-pencil edit"></span></a>
+                <?php if (file_exists(APPLICATION_PATH . 'images/' . $item->image)) : ?>
+                    <img width="50" height="50" src="<?= '/images/' . $item->image; ?>" alt="">
+                <?php endif; ?>
             </td>
         </tr>
         <?php endforeach; ?>

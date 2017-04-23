@@ -18,13 +18,13 @@ class Request
         }
     }
 
-    public function getProperty($key)
+    public function getProperty($key, $default = null)
     {
         if (isset($this->properties[$key])) {
             return $this->properties[$key];
         }
 
-        return null;
+        return $default;
     }
 
     public function setProperty($key, $val)
@@ -47,6 +47,10 @@ class Request
         $routes = explode('/', $this->getServer('REQUEST_URI'));
 
         if (!empty($routes[$part])) {
+            if (strpos($routes[$part], '?') !== false) {
+                $routes[$part] = array_shift(explode('?', $routes[$part]));
+            }
+
             return $routes[$part];
         }
 

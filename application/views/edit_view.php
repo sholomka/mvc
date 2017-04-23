@@ -6,7 +6,7 @@
             </div>
             <div class="modal-body">
                 <h3>Данные задачи</h3>
-                <form method="post" action="/edit">
+                <form method="post" action="/edit" enctype="multipart/form-data">
                     <div class="form-group">
                         <label class="control-label" for="name">Имя:</label>
                         <input type="text" required class="form-control" id="name" name="name" value="<?= $data->name; ?>">
@@ -23,13 +23,23 @@
                         <div class="help-block"></div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label" for="image">Картинка:</label>
-                        <input type="text" required class="form-control" id="image" name="image" value="<?= $data->image; ?>">
+                        <div class="btn btn-primary btn-file">
+                            <i class="glyphicon glyphicon-folder-open"></i>&nbsp;
+                            <span class="hidden-xs">Загрузить …</span>
+                            <input id="image" name="image" type="file">
+                        </div>
+                        <?php if (file_exists(APPLICATION_PATH . 'images/' . $data->image)) : ?>
+                            <img width="320" height="240" src="<?= '/images/' . $data->image; ?>" alt="">
+                        <?php endif; ?>
                         <div class="help-block"></div>
                     </div>
+                    <div class="form-group">
+                        <label class="control-label" for="status">Выполнено:</label>
+                        <input type="checkbox" id="status" name="status" <?= $data->status == '1' ? 'checked="checked"' : '' ; ?> >
 
+                        <div class="help-block"></div>
+                    </div>
                     <div class="modal-footer">
-                        <button class="btn btn-default" type="button" data-dismiss="modal">Закрыть</button>
                         <button class="btn btn-primary" type="submit">Сохранить изменения</button>
                     </div>
                     <input type="hidden" name="id" value="<?= $data->id; ?>">

@@ -1,6 +1,6 @@
 <a class="btn btn-lg btn-success" id="add" href="/add">Добавить</a>
 <div class="table-responsive">
-    <table class="table table-hover table-bordered table-striped">
+    <table id="admin-table" class="table table-hover table-bordered table-striped">
         <thead>
         <tr>
             <th>имя</th>
@@ -12,7 +12,7 @@
         </tr>
         </thead>
         <tbody>
-        <?php foreach ($data as $item) : ?>
+        <?php foreach ($data['tasks'] as $item) : ?>
             <tr>
                 <td class="name">
                     <?= $item->name; ?>
@@ -24,10 +24,12 @@
                     <?= $item->description; ?>
                 </td>
                 <td class="image">
-                    <?= $item->image; ?>
+                    <?php if (file_exists(APPLICATION_PATH . 'images/' . $item->image)) : ?>
+                        <img width="50" height="50" src="<?= '/images/' . $item->image; ?>" alt="">
+                    <?php endif; ?>
                 </td>
                 <td class="image">
-                    <?= $item->status; ?>
+                    <?= $item->status == '1' ? 'Выполено' : 'Не выполено'; ?>
                 </td>
                 <td>
                     <a href="/edit/<?= $item->id; ?>"><span class="glyphicon glyphicon-pencil edit"></span></a>
@@ -36,7 +38,14 @@
         <?php endforeach; ?>
         </tbody>
     </table>
+
+<!--    --><?//= $data['nav']; ?>
 </div>
+
+
+
+
+
 
 
 

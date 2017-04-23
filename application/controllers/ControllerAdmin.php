@@ -15,8 +15,15 @@ class ControllerAdmin extends Controller
 
     public function actionIndex()
     {
-        session_start();
-        $data = $this->model->getData();
+        $tasks = $this->model->getData($this->request);
+        $nav = $this->model->getNav();
+
+
+        $data = ['tasks' => $tasks, 'nav' => $nav];
+
+
+//        echo "<pre>"; print_r($data); die;
+
         $this->view->generate('admin_view.php', 'template_view.php', $data);
     }
 

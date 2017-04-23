@@ -21,6 +21,10 @@ class Route
 
         if (!empty($firstUrlPart)) {
             $controllerName = mb_convert_case($firstUrlPart, MB_CASE_TITLE, "UTF-8");
+
+            if (strpos($controllerName, '?') !== false) {
+                $controllerName = array_shift(explode('?', $controllerName));
+            }
         }
 
         if (!empty($secondUrlPart)) {
@@ -43,6 +47,9 @@ class Route
 
         $controllerFile = $controllerName . '.php';
         $controllerPath = 'application/controllers/' . $controllerFile;
+
+
+
 
         if (file_exists($controllerPath)) {
             include_once($controllerPath);
