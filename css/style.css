@@ -25,3 +25,7 @@
 .login button[type="submit"] {
     padding: 15px 15px;
 }
+
+.add-task img {
+    margin-left: 20px;
+}

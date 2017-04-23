@@ -23,7 +23,17 @@ class Main {
                 image = file.name,
                 callback = (response) => {
                     let imagePath = `/images/${response.filename}`;
-                    $('.add-task img').attr('src', imagePath);
+
+                    if ($('.add-task img').size() > 0) {
+                        $('.add-task img').attr('src', imagePath);
+                    } else {
+                        let img = new Image();
+                        img.src = imagePath;
+                        img.width = 320;
+                        img.height = 240;
+
+                        $('.btn-file').after(img);
+                    }
                 };
 
             this.filesUploadData = {

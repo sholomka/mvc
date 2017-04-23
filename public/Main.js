@@ -117,7 +117,17 @@ var Main = function () {
                     image = file.name,
                     callback = function callback(response) {
                     var imagePath = '/images/' + response.filename;
-                    $('.add-task img').attr('src', imagePath);
+
+                    if ($('.add-task img').size() > 0) {
+                        $('.add-task img').attr('src', imagePath);
+                    } else {
+                        var img = new Image();
+                        img.src = imagePath;
+                        img.width = 320;
+                        img.height = 240;
+
+                        $('.btn-file').after(img);
+                    }
                 };
 
                 _this.filesUploadData = {

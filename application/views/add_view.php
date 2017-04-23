@@ -23,8 +23,12 @@
                         <div class="help-block"></div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label" for="image">Картинка:</label>
-                        <input type="text" required class="form-control" id="image" name="image">
+                        <div class="btn btn-primary btn-file">
+                            <i class="glyphicon glyphicon-folder-open"></i>&nbsp;
+                            <span class="hidden-xs">Загрузить …</span>
+                            <input id="image" name="image" type="file">
+                        </div>
+
                         <div class="help-block"></div>
                     </div>
 
