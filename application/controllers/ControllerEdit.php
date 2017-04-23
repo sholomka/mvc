@@ -16,8 +16,7 @@ class ControllerEdit extends Controller
 
     public function actionIndex()
     {
-        $registry = ApplicationRegistry::instance();
-        $secondUrlPart = $registry->getRequest()->getUrlPart(2);
+        $secondUrlPart = $this->request->getUrlPart(2);
 
         if (!empty($secondUrlPart)) {
             $id = $secondUrlPart;
