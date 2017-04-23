@@ -40,8 +40,6 @@
         <?php endif; ?>
         </tbody>
     </table>
-
-<!--    --><?//= $data['nav']; ?>
 </div>
 
 
