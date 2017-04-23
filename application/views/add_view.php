@@ -33,15 +33,10 @@
                     </div>
 
                     <div class="modal-footer">
-                        <button class="btn btn-default" type="button" data-dismiss="modal">Предварительный просмотр</button>
                         <button class="btn btn-primary" type="submit">Сохранить изменения</button>
                     </div>
-
                 </form>
             </div>
-
-
-
         </div>
     </div>
 </div>
