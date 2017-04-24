@@ -39,7 +39,7 @@ class ControllerAdd extends Controller
     {
         $this->model->addTask();
 
-        header('Location:/');
+        header('Location:/admin');
     }
 }
 
