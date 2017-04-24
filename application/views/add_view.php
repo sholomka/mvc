@@ -26,7 +26,7 @@
                         <div class="btn btn-primary btn-file">
                             <i class="glyphicon glyphicon-folder-open"></i>&nbsp;
                             <span class="hidden-xs">Загрузить …</span>
-                            <input id="image" name="image" type="file">
+                            <input id="image" name="image" type="file" accept="image/png,image/jpeg,image/gif">
                         </div>
 
                         <div class="help-block"></div>
