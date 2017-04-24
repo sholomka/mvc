@@ -5,9 +5,39 @@ class Main {
         return '/edit/imageUpload';
     }
 
+    static get BASICMODAL() {
+        return $('#basicModal');
+    }
+
+    static get ADD_TASK() {
+        return $('.add-task');
+    }
+
     constructor() {
         this.tablePaginationAndSortInit();
         this.changeImage();
+        this.preview();
+    }
+
+    preview() {
+        Main.ADD_TASK.on('click', '.preview', function() {
+            let name = Main.ADD_TASK.find('input[name="name"]').val(),
+                email = Main.ADD_TASK.find('input[name="email"]').val(),
+                description = Main.ADD_TASK.find('input[name="description"]').val(),
+                fileName = Main.ADD_TASK.find('img').attr('src'),
+                imagePath = `${fileName}`;
+
+            let img = new Image();
+            img.src = imagePath;
+            img.width = 320;
+            img.height = 240;
+
+            Main.BASICMODAL.find('.name').text(name);
+            Main.BASICMODAL.find('.email').text(email);
+            Main.BASICMODAL.find('.description').text(description);
+            Main.BASICMODAL.find('.image').html(img);
+            Main.BASICMODAL.modal('show');
+        });
     }
 
     tablePaginationAndSortInit() {

@@ -36,6 +36,39 @@
             <?php include_once('application/views/' . $contentView); ?>
         </div>
     </div>
+
+    <div class="modal fade" id="basicModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header"><button class="close" type="button" data-dismiss="modal">x</button>
+                    <h4 class="modal-title" id="myModalLabel">Предварительный просмотр</h4>
+                </div>
+                <div class="modal-body">
+                    <h3>Данные задачи</h3>
+                    <form #formRef="ngForm">
+                        <div class="form-group">
+                            <label class="control-label" for="name">Имя:</label>
+                            <span class="name">Имя</span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="email">Email:</label>
+                            <span class="email" >Email</span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="description">Текст:</label>
+                            <span class="description">Текст</span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="image">Картинка:</label>
+                            <span class="image"></span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <script  src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script  src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
