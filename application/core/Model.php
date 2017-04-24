@@ -4,9 +4,15 @@ namespace  Application\Core;
 
 use Application\Core\ApplicationRegistry;
 
+/**
+ * Class Model - основная модель приложения
+ * @package Application\Core
+ */
 abstract class Model
 {
     /**
+     * Подключение к PDO    
+     *
      * @var \PDO
      */
     private static $DB;
@@ -44,9 +50,6 @@ abstract class Model
         
         $stmtHandle = self::$DB->prepare($statement);
         self::$statements[$statement] = $stmtHandle;
-
-
-
         return $stmtHandle;
     }
 
@@ -57,17 +60,9 @@ abstract class Model
      */
     protected function doStatement($statement, array $values = [])
     {
-
         $sth = $this->prepareStatement($statement);
         $sth->closeCursor();
-
-
-
-
-
         $dbResult = $sth->execute($values);
-
-
         return $sth;
     }
 }

@@ -3,7 +3,7 @@
 return [
     'db' => [
         'host' => 'localhost',
-        'dbname' => 'c9',
+        'dbname' => 'mvc',
         'charset' => 'utf8',
         'username' => 'root',
         'password' => ''

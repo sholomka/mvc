@@ -12,8 +12,8 @@
         </tr>
         </thead>
         <tbody>
-        <?php if(!empty($data['tasks'])) : ?>
-            <?php foreach ($data['tasks'] as $item) : ?>
+        <?php if(!empty($data)) : ?>
+            <?php foreach ($data as $item) : ?>
                 <tr>
                     <td class="name">
                         <?= $item->name; ?>

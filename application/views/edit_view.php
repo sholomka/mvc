@@ -6,7 +6,7 @@
             </div>
             <div class="modal-body">
                 <h3>Данные задачи</h3>
-                <form method="post" action="/edit" enctype="multipart/form-data">
+                <form method="post" action="/edit">
                     <div class="form-group">
                         <label class="control-label" for="name">Имя:</label>
                         <input type="text" required class="form-control" id="name" name="name" value="<?= $data->name; ?>">

@@ -4,18 +4,26 @@ namespace  Application\Controllers;
 
 use Application\Core\Controller;
 use Application\Models\ModelEdit;
-use Application\Core\ApplicationRegistry;
 use Application\Core\File\User;
-use Application\Core\Image\Image;
 
+/**
+ * Class ControllerEdit
+ * @package Application\Controllers
+ */
 class ControllerEdit extends Controller
 {
+    /**
+     * ControllerEdit constructor.
+     */
     public function __construct()
     {
         parent::__construct();
         $this->model = new ModelEdit();
     }
 
+    /**
+     * Action по умолчанию
+     */
     public function actionIndex()
     {
         $secondUrlPart = $this->request->getUrlPart(2);
@@ -32,17 +40,22 @@ class ControllerEdit extends Controller
         }
     }
 
+    /**
+     * Сохранение ззадачи
+     */
     public function actionSave()
     {
         $this->model->editTask($this->request);
-
         header('Location:/admin');
     }
 
+    /**
+     * Ajax action для загрузки файла на сервер
+     */
     public function actionImageUpload()
     {
         $file = new User();
-        $array = array('status' => 'success', 'filename' => $file->getSavedFileName());
+        $array = ['status' => 'success', 'filename' => $file->getSavedFileName()];
         header('Content-Type', 'application/json;charset=utf-8');
         $file->upload();
         echo  json_encode($array);

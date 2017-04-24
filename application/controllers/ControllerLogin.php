@@ -3,10 +3,18 @@
 namespace  Application\Controllers;
 
 use Application\Core\Controller;
-use Application\Models\ModelMain;
 
+/**
+ * Class ControllerLogin
+ * @package Application\Controllers
+ */
 class ControllerLogin extends Controller
 {
+    /**
+     * Action по умолчанию
+     * Логин пользователя
+     * Для упрощения сделано не через БД
+     */
     public function actionIndex()
     {
         $login = $this->request->getProperty('login');

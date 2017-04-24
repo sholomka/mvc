@@ -35,14 +35,14 @@ class ModelEdit extends Model
     /**
      * @param Request $request
      */
-    public function editTask(Request $request)
+    public function editTask()
     {
-        $name = $request->getProperty('name');
-        $email = $request->getProperty('email'); ;
-        $description = $request->getProperty('description');
-        $image = $_FILES['image']['name'];
-        $id = $request->getProperty('id');
-        $status = $request->getProperty('status') == 'on' ? 1 : 0;
+        $name = $this->request->getProperty('name');
+        $email = $this->request->getProperty('email'); ;
+        $description = $this->request->getProperty('description');
+        $image = $this->request->getProperty('image');
+        $id = $this->request->getProperty('id');
+        $status = $this->request->getProperty('status') == 'on' ? 1 : 0;
 
         $stmt = $this->doStatement(self::$editTask, [
             $name,
@@ -53,7 +53,6 @@ class ModelEdit extends Model
             $id
         ]);
     }
-
 
     /**
      * @return array
@@ -66,7 +65,5 @@ class ModelEdit extends Model
             return $result;
         }
     }
-
-
 }
 

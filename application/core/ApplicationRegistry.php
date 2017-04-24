@@ -8,21 +8,29 @@ use  Application\Core\Request;
 class ApplicationRegistry
 {
     /**
+     * Синглтон
+     *
      * @var null
      */
     private static $instance = null;
 
     /**
+     * Путь к конфигу
+     *
      * @var
      */
     private $config;
 
     /**
+     * Массив для значений реестра
+     *
      * @var array
      */
     private $values = [];
 
     /**
+     * Запрос пользователя
+     *
      * @var
      */
     private $request;
@@ -36,6 +44,8 @@ class ApplicationRegistry
     }
 
     /**
+     * Извлекает значения из реестра
+     *
      * @param $key
      * @return mixed|null
      */
@@ -49,6 +59,8 @@ class ApplicationRegistry
     }
 
     /**
+     * Добавляет значение в реестр
+     *
      * @param $key
      * @param $val
      */
@@ -58,7 +70,7 @@ class ApplicationRegistry
     }
 
     /**
-     *
+     * Получает настройки из конфига
      */
     private function getOptions()
     {
@@ -75,6 +87,8 @@ class ApplicationRegistry
     }
 
     /**
+     * Устанавливает DSN
+     *
      * @param $dsn
      */
     private static function setDSN($dsn)
@@ -83,6 +97,8 @@ class ApplicationRegistry
     }
 
     /**
+     * Устанавливает имя пользователя
+     *
      * @param $username
      */
     private static function setUserName($username)
@@ -91,6 +107,8 @@ class ApplicationRegistry
     }
 
     /**
+     * Устанавливает пароль
+     *
      * @param $password
      */
     private static function setPassword($password)
@@ -99,6 +117,8 @@ class ApplicationRegistry
     }
 
     /**
+     * Вывод ошибок
+     *
      * @param $expr
      * @param $message
      * @throws \Exception
@@ -111,6 +131,8 @@ class ApplicationRegistry
     }
 
     /**
+     * Синглтон
+     *
      * @return ApplicationRegistry|null
      */
     public static function instance()
@@ -123,6 +145,8 @@ class ApplicationRegistry
     }
 
     /**
+     * Получает DSN
+     *
      * @return mixed|null
      */
     public static function getDSN()
@@ -131,6 +155,8 @@ class ApplicationRegistry
     }
 
     /**
+     * Получате имя пользователя
+     *
      * @return mixed|null
      */
     public static function getUserName()
@@ -139,6 +165,8 @@ class ApplicationRegistry
     }
 
     /**
+     * Получает пароль
+     *
      * @return mixed|null
      */
     public static function getPassword()
@@ -147,6 +175,8 @@ class ApplicationRegistry
     }
 
     /**
+     * Получает объект запроса пользователя
+     *
      * @return \Application\Core\Request
      */
     public static function getRequest()
@@ -161,7 +191,7 @@ class ApplicationRegistry
     }
 
     /**
-     *
+     *  Инициализация реестра и получения настроек
      */
     public function init()
     {

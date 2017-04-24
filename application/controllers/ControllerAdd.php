@@ -5,14 +5,24 @@ namespace  Application\Controllers;
 use Application\Core\Controller;
 use Application\Models\ModelAdd;
 
+/**
+ * Class ControllerAdd
+ * @package Application\Controllers
+ */
 class ControllerAdd extends Controller
 {
+    /**
+     * ControllerAdd constructor.
+     */
     public function __construct()
     {
         parent::__construct();
         $this->model = new ModelAdd();
     }
 
+    /**
+     * Action по умолчанию
+     */
     public function actionIndex()
     {
         if (!empty($_POST)) {
@@ -22,9 +32,12 @@ class ControllerAdd extends Controller
         }
     }
 
+    /**
+     * Добавляет задачу
+     */
     public function actionSave()
     {
-        $this->model->addTask($_POST['name'], $_POST['email'], $_POST['description'], $_POST['image']);
+        $this->model->addTask();
 
         header('Location:/');
     }
