@@ -39,7 +39,7 @@ class ImageGIF extends Image
      *
      * @param $path - путь, по которому сохранится изображение
      * @return $this
-     * @throws Models_File_Exceptions_FileNotSaveException
+     * @throws FileNotSaveException
      */
     public function save($path)
     {

@@ -4,12 +4,25 @@ namespace  Application\Core;
 
 use Application\Core\ApplicationRegistry;
 
+/**
+ * Class Route - основной роутер приложения
+ * @package Application\Core
+ */
 class Route
 {
+    /**
+     * Action по умолчанию
+     */
     const ACTION_NAME = 'Index';
 
+    /**
+     * Контроллер по умолчанию
+     */
     const CONTROLLER_NAME = 'Main';
 
+    /**
+     * Разбор URL
+     */
     public static function start()
     {
         $registry = ApplicationRegistry::instance();
@@ -48,9 +61,6 @@ class Route
         $controllerFile = $controllerName . '.php';
         $controllerPath = 'application/controllers/' . $controllerFile;
 
-
-
-
         if (file_exists($controllerPath)) {
             include_once($controllerPath);
         } else {
@@ -59,7 +69,6 @@ class Route
 
         $controllerNameSpacePath = '\\Application\\Controllers\\';
         $controllerName = $controllerNameSpacePath . $controllerName;
-
         $controler = new $controllerName();
         $action = $actionName;
 
@@ -70,10 +79,12 @@ class Route
         }
     }
 
+    /**
+     * Ошибка 404
+     */
     public static function errorPage404()
     {
         $host = 'http://' . $_SERVER['HTTP_HOST'] . '/';
-
         header('HTTP/1.1 404 Not Found');
         header('Status: 404 Not Found');
         header('Location: ' . $host . '404');

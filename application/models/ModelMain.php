@@ -4,6 +4,10 @@ namespace  Application\Models;
 
 use Application\Core\Model;
 
+/**
+ * Class ModelMain
+ * @package Application\Models
+ */
 class ModelMain extends Model
 {
 
@@ -20,6 +24,8 @@ class ModelMain extends Model
                                FROM tasks";
 
     /**
+     * Получение всех задач
+     *
      * @return array
      */
     public function getData()

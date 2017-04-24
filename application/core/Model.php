@@ -39,6 +39,8 @@ abstract class Model
     }
 
     /**
+     * Подготовка выражения
+     *
      * @param $statement
      * @return mixed|\PDOStatement
      */
@@ -54,6 +56,8 @@ abstract class Model
     }
 
     /**
+     * Исполнения выражения
+     *
      * @param $statement
      * @param array|null $values
      * @return mixed|\PDOStatement

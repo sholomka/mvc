@@ -27,7 +27,6 @@ class ModelAdd extends Model
         $email = $this->request->getProperty('email'); ;
         $description = $this->request->getProperty('description');
         $image = $this->request->getProperty('image');
-
         $this->doStatement(self::$addTask, [$name, $email, $description, $image]);
     }
 }

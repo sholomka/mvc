@@ -46,19 +46,10 @@ abstract class File
     public static $fileKeyName = 'image';
 
     /**
-     * ID авторизированного пользователя
-     *
-     * @var
+     * File constructor.
      */
-    protected $userId;
-
-    public function __construct($userId = null)
+    public function __construct()
     {
-        if ($userId === null){
-            $this->userId = Auth::getInstance()->getIdentity()->getId();
-        } else {
-            $this->userId = $userId;
-        }
     }
 
     /**
@@ -74,7 +65,6 @@ abstract class File
                     $this->createDir($dir);
                 }
 
-                //if (!move_uploaded_file($_FILES[self::$fileKeyName]['tmp_name'], $this->destination)) {
                 if (!copy($_FILES[self::$fileKeyName]['tmp_name'], $this->destination)) {
                     throw new \Exception("Ошибка загрузки файла\n");
                 }

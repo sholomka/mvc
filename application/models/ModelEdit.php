@@ -5,6 +5,10 @@ namespace  Application\Models;
 use Application\Core\Model;
 use Application\Core\Request;
 
+/**
+ * Class ModelEdit
+ * @package Application\Models
+ */
 class ModelEdit extends Model
 {
     /**
@@ -33,7 +37,7 @@ class ModelEdit extends Model
                                   WHERE id = ?";
 
     /**
-     * @param Request $request
+     * Редактирование задачи
      */
     public function editTask()
     {
@@ -55,6 +59,8 @@ class ModelEdit extends Model
     }
 
     /**
+     * Получение задачи по ID
+     *
      * @return array
      */
     public function getDataById($id)

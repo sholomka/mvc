@@ -1,16 +1,18 @@
 <?php
-use Models_File_Exceptions_UnsupportedFormatException as UnsupportedFormatException;
-use Models_File_Exceptions_FileNotSaveException as FileNotSaveException;
+
+use Application\Core\Image\Exceptions\UnsupportedFormatException;
+use Application\Core\Image\Exceptions\FileNotSaveException;
+use Application\Core\Image\Image;
 
 /**
- * Class Models_File_ImagePNG
+ * Class Models_Image_ImagePNG
  */
-class Models_Image_ImagePNG extends Models_Image_Abstract
+class Models_Image_ImagePNG extends Image
 {
     /**
      * Настройки по умолчанию
      *
-     * @throws Models_File_Exceptions_UnsupportedFormatException
+     * @throws UnsupportedFormatException
      */
     public function init()
     {
@@ -35,9 +37,9 @@ class Models_Image_ImagePNG extends Models_Image_Abstract
     /**
      * Сохраняет изображение в формате png
      *
-     * @param $path - путь, по которому сохранится изображение
+     * @param $path  - путь, по которому сохранится изображение
      * @return $this
-     * @throws Models_File_Exceptions_FileNotSaveException
+     * @throws FileNotSaveException
      */
     public function save($path)
     {

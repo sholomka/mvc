@@ -71,10 +71,10 @@ class Image extends File
     protected  $filePath;
 
     /**
-     * Models_File_Image constructor.
+     * Image constructor.
      * @param $filePath - путь к файлу с изображением
-     * @throws Models_File_Exceptions_FileNotFoundException
-     * @throws Models_File_Exceptions_InvalidFileException
+     * @throws FileNotFoundException
+     * @throws InvalidFileException
      */
     public function __construct($filePath)
     {
@@ -103,11 +103,10 @@ class Image extends File
     /**
      * Создает экземпляры классов ImageJPG, ImagePNG, ImageGIF
      * в зависимости от типа изображения
-     *
      * @param $filePath
      * @return Models_Image_ImageGIF|Models_Image_ImageJPG|Models_Image_ImagePNG
-     * @throws Models_File_Exceptions_GDnotInstalledException
-     * @throws Models_File_Exceptions_InvalidFileException
+     * @throws GDnotInstalledException
+     * @throws InvalidFileException
      */
     public static function createImage($filePath)
     {

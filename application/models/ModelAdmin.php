@@ -4,7 +4,6 @@ namespace  Application\Models;
 
 use Application\Core\Model;
 
-use Application\Core\SimPageNav;
 
 /**
  * Class ModelAdmin
@@ -34,6 +33,8 @@ class ModelAdmin extends Model
                                FROM tasks";
 
     /**
+     * Получение всех задач
+     *
      * @return array
      */
     public function getData()

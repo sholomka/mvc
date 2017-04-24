@@ -1,16 +1,16 @@
 <?php
-use Models_File_Exceptions_UnsupportedFormatException as UnsupportedFormatException;
-use Models_File_Exceptions_FileNotSaveException as FileNotSaveException;
+
+use Application\Core\Image\Exceptions\UnsupportedFormatException;
+use Application\Core\Image\Exceptions\FileNotSaveException;
+use Application\Core\Image\Image;
 
 /**
  * Class Models_Image_ImageJPG
  */
-class Models_Image_ImageJPG extends Models_Image_Abstract
+class Models_Image_ImageJPG extends Image
 {
     /**
-     * Настройки по умолчанию
-     *
-     * @throws Models_File_Exceptions_UnsupportedFormatException
+     *  Настройки по умолчанию
      */
     public function init()
     {
@@ -43,7 +43,7 @@ class Models_Image_ImageJPG extends Models_Image_Abstract
      *
      * @param $path - путь, по которому сохранится изображение
      * @return $this
-     * @throws Models_File_Exceptions_FileNotSaveException
+     * @throws FileNotSaveException
      */
     public function save($path)
     {

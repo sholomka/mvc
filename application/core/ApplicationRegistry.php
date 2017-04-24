@@ -5,6 +5,10 @@ namespace Application\Core;
 use  Application\Exceptions\AppException;
 use  Application\Core\Request;
 
+/**
+ * Class ApplicationRegistry - основной реест приложения
+ * @package Application\Core
+ */
 class ApplicationRegistry
 {
     /**

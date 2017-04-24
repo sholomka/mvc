@@ -97,12 +97,11 @@ class User extends File
     );
 
     /**
-     * Models_File_User constructor.
+     * User constructor.
      */
-    public function __construct($userId = null)
+    public function __construct()
     {
         $originalPath = APPLICATION_PATH .  implode('/', ['images']) . DIRECTORY_SEPARATOR;
-
 
         if (array_key_exists(parent::$fileKeyName, $_FILES)) {
             $this->savedFileName = $this->transliterate(basename($_FILES[parent::$fileKeyName]['name']));
