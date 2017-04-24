@@ -23,9 +23,9 @@
                     <?= $item->description; ?>
                 </td>
                 <td class="image">
-                    <?php if (file_exists(APPLICATION_PATH . 'images/' . $item->image)) : ?>
-                        <img width="50" height="50" src="<?= '/images/' . $item->image; ?>" alt="">
-                    <?php endif; ?>
+                <?php if (file_exists(APPLICATION_PATH . 'images/' . strtolower($item->image))) : ?>
+                    <img width="50" height="50" src="<?= '/images/' . strtolower($item->image); ?>" alt="">
+                <?php endif; ?>
                 </td>
             </tr>
             <?php endforeach; ?>

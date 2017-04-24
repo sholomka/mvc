@@ -20,16 +20,17 @@
   "require": {
     "php" : ">=5.5.9"
   },
-
   "autoload": {
     "psr-4": {
       "Application\\Core\\": "application/core",
+      "Application\\Core\\File\\": "application/core/file",
       "Application\\Exceptions\\": "application/exceptions"
     }
   },
   "autoload-dev": {
     "psr-4": {
       "Application\\Core\\": "application/core",
+      "Application\\Core\\File\\": "application/core/file",
       "Application\\Exceptions\\": "application/exceptions"
     }
   },

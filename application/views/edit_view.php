@@ -28,8 +28,8 @@
                             <span class="hidden-xs">Загрузить …</span>
                             <input id="image" name="image" type="file">
                         </div>
-                        <?php if (file_exists(APPLICATION_PATH . 'images/' . $data->image)) : ?>
-                            <img width="320" height="240" src="<?= '/images/' . $data->image; ?>" alt="">
+                        <?php if (file_exists(APPLICATION_PATH . 'images/' . strtolower($data->image))) : ?>
+                            <img width="320" height="240" src="<?= '/images/' . strtolower($data->image); ?>" alt="">
                         <?php endif; ?>
                         <div class="help-block"></div>
                     </div>
